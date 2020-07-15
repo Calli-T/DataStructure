@@ -39,7 +39,7 @@ public:
 	}
 
 	void stackFull() {
-		cout << "스택이 가득차있습니다" << endl;
+		cout << "스택이 가득차있습니다" << endl;//
 	}
 	void stackEmpty() {
 		cout << "스택이 비어있습니다" << endl;
