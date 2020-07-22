@@ -35,7 +35,7 @@ precedence get_token(char* symbol, int* n) {
 	case '/': return divide;
 	case '*': return times;
 	case '%': return mod;
-	case '\0': return eos;
+	case ' ': return eos;
 	default: return operand;
 	}
 }
