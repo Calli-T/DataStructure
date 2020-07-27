@@ -146,13 +146,39 @@ string toPostfix(string expr) {
 	return cpy;
 }
 
+int calcPostfix(string postfix) {
+
+	stack<int> st;
+	int tmp1, tmp2;
+	int ans = 0;
+
+	for (int i = 0; i < postfix.size(); i++) {
+		if (isSymbol(postfix[i]) == false)
+			st.push(((postfix[i]) - 48));
+		else {
+			tmp1 = st.pop();
+			tmp2 = st.pop();
+			//cout << tmp1 << " " << tmp2 << endl;
+			switch (postfix[i]) {
+			case '+':st.push(tmp1 + tmp2); break;
+			case '-':st.push(tmp1 - tmp2); break;
+			case '*':st.push(tmp1 * tmp2); break;
+			case '/':st.push(tmp1 / tmp2); break;
+			case '%':st.push(tmp1 % tmp2); break;
+			}
+			ans = st.Top();
+		}
+	}
+
+	return ans;
+}
+
 int main() {
 
 	string infix, postfix;
 	cin >> infix;
 
 	postfix = toPostfix(infix);
-	//cout << postfix;
-
+	cout << calcPostfix(postfix);
 
 }
